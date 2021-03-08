@@ -6,9 +6,28 @@
 </head>
 
 <body>
-    <h1 id="bigOne"> loha </h1>
+    <h1 id="bigOne"></h1>
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script type="text/javascript">
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyDApnJh0t3shbCPkWNfRtDFl_c482Ir_o8",
+	  authDomain: "tiokadamsapp.firebaseapp.com",
+	  databaseURL: "https://tiokadamsapp-default-rtdb.firebaseio.com",
+	  projectId: "tiokadamsapp",
+	  storageBucket: "tiokadamsapp.appspot.com",
+	  messagingSenderId: "659557763186",
+	  appId: "1:659557763186:web:edcf65ed5ae33b83eedaeb",
+	  measurementId: "G-49YLETG92Z"
+	};
+	firebase.initializeApp(firebaseConfig);
 
 
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+    </script>
 </body>
 
 </html>
