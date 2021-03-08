@@ -7,6 +7,8 @@
 
 <body>
     <h1 id="bigOne"></h1>
+    <button id="color1" onclick="changeColor('blue');">blue</button>
+  	<button id="color2" onclick="changeColor('red');">red</button>
 
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script type="text/javascript">
@@ -23,10 +25,21 @@
 	};
 	firebase.initializeApp(firebaseConfig);
 
-
+	//retrieeving for header
     var bigOne = document.getElementById('bigOne');
-    var dbRef = firebase.database().ref().child('text');
-    dbRef.on('value', snap => bigOne.innerText = snap.val());
+    var dbRef = firebase.database().ref();
+    dbRef.child('text').on('value', snap => bigOne.innerText = snap.val());
+
+
+    function changeColor(newColor) {
+    	//updating color field
+    	firebase.database().ref().child('color').set(newColor);
+	  	// elem.style.color = newColor;
+	  	firebase.database().ref().child('color').on('value', function(datasnapshot){
+	  		bigOne.style.color = datasnapshot.val();
+	  	})
+	}
+
     </script>
 </body>
 
