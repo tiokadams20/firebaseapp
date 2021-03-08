@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>tiokadams2 quickstart</title>
+    <title>tiokadams quickstart</title>
 </head>
 
 <body>
@@ -29,7 +29,8 @@
     var bigOne = document.getElementById('bigOne');
     var dbRef = firebase.database().ref();
     dbRef.child('text').on('value', snap => bigOne.innerText = snap.val());
-    
+
+    //changing color
     firebase.database().ref().child('color').on('value', function(datasnapshot){
 	  	bigOne.style.color = datasnapshot.val();
 	})
@@ -39,9 +40,6 @@
     	//updating color field
     	firebase.database().ref().child('color').set(newColor);
 	  	// elem.style.color = newColor;
-	  	firebase.database().ref().child('color').on('value', function(datasnapshot){
-	  		bigOne.style.color = datasnapshot.val();
-	  	})
 	}
 
     </script>
