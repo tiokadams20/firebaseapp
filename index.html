@@ -2,10 +2,7 @@
 <html>
 
 <head>
-    <title>tiokadams quickstart</title>
-</head>
-
-<style type="text/css">
+	<style>
 	.button {
 	  display: inline-block;
 	  padding: 15px 25px;
@@ -28,12 +25,14 @@
 	  box-shadow: 0 5px #666;
 	  transform: translateY(4px);
 	}
-</style>
+	</style>
+    <title>tiokadams quickstart</title>
+</head>
 
 <body>
     <h1 id="bigOne"></h1>
-    <button id="color1" onclick="changeColor('blue');">blue</button>
-  	<button id="color2" onclick="changeColor('red');">red</button>
+    <button class="button" id="color1" onclick="changeColor('blue');">blue</button>
+  	<button class="button" id="color2" onclick="changeColor('red');">red</button>
 
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script type="text/javascript">
